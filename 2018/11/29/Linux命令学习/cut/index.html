@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>cut | </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="打印文件行的一部分，并将结果显示到标准输出上。 用法cut [选项]... [文件]...  选项-b, --bytes=列表              只选中指定的这些字节 -c, --characters=列表         只选中指定的这些字符 -d, --delimiter=分界符        使用指定分界符代替制表符作为区域分界 -f, --fields=列表">
+<meta property="og:type" content="article">
+<meta property="og:title" content="cut">
+<meta property="og:url" content="http://yoursite.com/2018/11/29/Linux命令学习/cut/index.html">
+<meta property="og:site_name">
+<meta property="og:description" content="打印文件行的一部分，并将结果显示到标准输出上。 用法cut [选项]... [文件]...  选项-b, --bytes=列表              只选中指定的这些字节 -c, --characters=列表         只选中指定的这些字符 -d, --delimiter=分界符        使用指定分界符代替制表符作为区域分界 -f, --fields=列表">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-11-29T11:26:26.488Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="cut">
+<meta name="twitter:description" content="打印文件行的一部分，并将结果显示到标准输出上。 用法cut [选项]... [文件]...  选项-b, --bytes=列表              只选中指定的这些字节 -c, --characters=列表         只选中指定的这些字符 -d, --delimiter=分界符        使用指定分界符代替制表符作为区域分界 -f, --fields=列表">
+  
+    <link rel="alternate" href="/atom.xml" title="" type="application/atom+xml">
+  
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="/css/styles.css">
+  
+
+</head>
+</html>
+<body>
+  <nav class="navbar navbar-inverse">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="main-menu-navbar">
+      <ul class="nav navbar-nav">
+        
+          <li><a class="" href="/index.html">Home</a></li>
+        
+          <li><a class="" href="/archives/">Archives</a></li>
+        
+      </ul>
+
+      <!--
+      <ul class="nav navbar-nav navbar-right">
+        
+          <li><a href="/atom.xml" title="RSS Feed"><i class="fa fa-rss"></i></a></li>
+        
+      </ul>
+      -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+  <div class="container">
+    <div class="blog-header">
+  <h1 class="blog-title"></h1>
+  
+    <p class="lead blog-description">这一刻的心情</p>
+  
+</div>
+
+    <div class="row">
+        <div class="col-sm-8 blog-main">
+          <article id="post-Linux命令学习/cut" class="article article-type-post" itemscope="" itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 class="article-title" itemprop="name">
+      cut
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="/2018/11/29/Linux命令学习/cut/" class="article-date"><time datetime="2018-11-29T07:32:14.000Z" itemprop="datePublished">2018-11-29</time></a>
+</div>
+
+    
+    
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>打印文件行的一部分，并将结果显示到标准输出上。</p>
+<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><pre><code>cut [选项]... [文件]... 
+</code></pre><h3 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h3><pre><code>-b, --bytes=列表              只选中指定的这些字节
+-c, --characters=列表         只选中指定的这些字符
+-d, --delimiter=分界符        使用指定分界符代替制表符作为区域分界
+-f, --fields=列表             只选中指定的这些域；并打印所有不包含分界符的
+                              行，除非-s 选项被指定
+-n                            (忽略)
+    --complement              补全选中的字节、字符或域
+-s, --only-delimited          不打印没有包含分界符的行
+    --output-delimiter=字符串 使用指定的字符串作为输出分界符，默认采用输入
+                              的分界符
+-z, --zero-terminated    line delimiter is NUL, not newline
+    --help            显示此帮助信息并退出
+    --version         显示版本信息并退出 
+</code></pre><h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><pre><code class="bash">cat test.txt
+
+No name age mark
+01 张三 19 91
+02 李四 20 87
+03 王五 21 98
+</code></pre>
+<p>使用 -f 选项提取指定字段：</p>
+<pre><code class="bash">cut -f 1 test.txt
+结果：
+No
+01
+02
+03
+</code></pre>
+<pre><code class="bash">cut -f2,3 test.txt
+结果：
+name age
+张三 19
+李四 20
+王五 21
+</code></pre>
+<p>–complement 选项提取指定字段之外的列：</p>
+<pre><code class="bash">cut -f3 --complement test.txt
+结果：
+No name mark
+01 张三 91
+02 李四 87
+03 王五 98
+</code></pre>
+<p>使用 -d 选项指定字段分隔符：</p>
+<pre><code class="bash">cat test2.txt
+
+No:name:age:mark
+01:张三:19:91
+02:李四:20:87
+03:王五:21:98
+</code></pre>
+<pre><code class="bash">cut -f2 -d<span class="string">":"</span> test2.txt
+结果：
+name
+张三
+李四
+王五
+</code></pre>
+<h3 id="指定字段的字符或者字节范围"><a href="#指定字段的字符或者字节范围" class="headerlink" title="指定字段的字符或者字节范围"></a>指定字段的字符或者字节范围</h3><p>N：第N个字节、字符、字段<br>N-：从第N个字节、字符、字段到结尾<br>N-M：从第N个字节、字符、字段到第M个（包括M在内）字节、字符、字段<br>-M：从第1个字节、字符、字段到第M个（包括M在内）字节、字符、字段</p>
+<p>上面的范围选择需要结合下面选项使用<br>-b 表示字节<br>-c 表示字符<br>-f 表示定义字段</p>
+<pre><code class="bash">cat test.txt
+
+123456789
+123456789
+123456789
+123456789
+123456789
+</code></pre>
+<p>打印第3个到第5个字符：</p>
+<pre><code class="bash">cut -c 3-5 test.txt
+结果：
+345
+345
+345
+345
+345
+</code></pre>
+<p>打印前4个字符：</p>
+<pre><code class="bash">cut -c -4 test.txt
+结果：
+1234
+1234
+1234
+1234
+1234
+</code></pre>
+<p>打印从第5个字符开始到结尾：</p>
+<pre><code class="bash">cut -c 5- test.txt
+结果：
+56789
+56789
+56789
+56789
+56789
+</code></pre>
+
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/11/29/Linux命令学习/cut/" data-id="cjp2jcmo00002vkp317wlggao" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+      
+
+    </footer>
+  </div>
+  
+    
+<ul id="article-nav" class="nav nav-pills nav-justified">
+  
+  <li role="presentation">
+    <a href="/2018/11/26/根据不同manifast.xml同步代码/" id="article-nav-older" class="article-nav-link-wrap">
+      <i class="fa fa-chevron-left pull-left"></i>
+      <span class="article-nav-link-title">根据不同manifast.xml同步代码</span>
+    </a>
+  </li>
+  
+  
+  <li role="presentation">
+    <a href="/2018/11/29/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-link-title">Hello World</span>
+      <i class="fa fa-chevron-right pull-right"></i>
+    </a>
+  </li>
+  
+</ul>
+
+
+  
+</article>
+
+
+
+
+        </div>
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          
+  <div class="sidebar-module sidebar-module-inset">
+  <h4>About</h4>
+  <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+
+</div>
+
+
+  
+
+
+  
+
+
+  
+
+  
+  <div class="sidebar-module">
+    <h4>Archives</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/11/">November 2018</a><span class="sidebar-module-list-count">3</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Recents</h4>
+    <ul class="sidebar-module-list">
+      
+        <li>
+          <a href="/2018/11/29/hello-world/">Hello World</a>
+        </li>
+      
+        <li>
+          <a href="/2018/11/29/Linux命令学习/cut/">cut</a>
+        </li>
+      
+        <li>
+          <a href="/2018/11/26/根据不同manifast.xml同步代码/">根据不同manifast.xml同步代码</a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+
+        </div>
+    </div>
+  </div>
+  <footer class="blog-footer">
+  <div class="container">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Calm Night<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+  
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" integrity="sha384-8gBf6Y4YYq7Jx97PIqmTwLPin4hxIzQw5aDmUg/DDhul9fFpbbLcLh3nTIIDJKhx" crossorigin="anonymous"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+
+
+<script src="/js/script.js"></script>
+
+</body>
+</html>
